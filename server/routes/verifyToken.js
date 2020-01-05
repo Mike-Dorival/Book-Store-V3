@@ -9,7 +9,7 @@ const auth = (req, res, next) => {
     req.user = verify;
     next();
   } catch (err) {
-    res.status(400).send("Invalid Token");
+    res.status(400).send("Please reconnect !");
   }
 };
 

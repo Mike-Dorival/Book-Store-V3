@@ -11,8 +11,8 @@ Petit challenge perso faire un site comme https://www.gibert.com.
 ```sh
 unzip book-store
 cd book-store
-cd client & npm start
-cd server & npm start
+cd client & npm i & npm start
+cd server & npm i & npm start
 ```
 
 ## Dans quel langage ?
