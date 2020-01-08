@@ -66,9 +66,11 @@ input[type="search"] {
   font-size: 1em;
   text-decoration: none;
   line-height: normal;
-  max-height: 3em;
+  max-height: 5em;
   flex: 2 0 250px;
   padding-left: 10px;
+  width: 24%;
+  height: 1.5em;
 }
 
 input[type="search"]:focus {
@@ -77,5 +79,4 @@ input[type="search"]:focus {
   letter-spacing: 0.1em;
   transition: background 400ms ease-in-out;
   outline: none;
-  font-size: 20px;
 }

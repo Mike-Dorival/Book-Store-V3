@@ -1,22 +1,18 @@
 import React from "react";
+import "./Book.css";
 
 function Book({ listBooks }) {
-  const {
-    title,
-    subtitle,
-    author,
-    publisher,
-    price,
-    imgURL,
-    description
-  } = listBooks;
+  const { title, author, price, imgURL } = listBooks;
   return (
-    <div className="Book-container">
+    <article className="card">
       <img src={imgURL} alt="img" />
-      <h3>{title}</h3>
-      <h4>{subtitle}</h4>
-      <p>{description}</p>
-    </div>
+      <div className="text">
+        <h3 className="Book-title">{title}</h3>
+        <h4 className="Book-author">{author}</h4>
+        <p>Neuf : {price} €</p>
+        <button>Ajouter au panier</button>
+      </div>
+    </article>
   );
 }
 

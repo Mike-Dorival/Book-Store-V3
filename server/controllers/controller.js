@@ -25,7 +25,7 @@ const registerController = async (req, res) => {
 
   try {
     const savedUser = await user.save();
-    res.send({ user: user._id });
+    res.status(200).send({ user, message: "Compte crée avec succès" });
   } catch (err) {
     res.status(400).send(err);
   }
@@ -48,7 +48,9 @@ const loginController = async (req, res) => {
   const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET, {
     expiresIn: "1h"
   });
-  res.header("auth-token", token).send(token);
+  //res.header("auth-token", token).send(token);
+
+  res.status(200).send({ username: user.username, email: user.email, token });
 };
 
 module.exports = {

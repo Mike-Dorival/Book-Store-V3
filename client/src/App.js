@@ -1,10 +1,14 @@
 import React from "react";
-import Home from "./components/Home/Home";
+import { useRoutes } from "hookrouter";
+import Navbar from "./components/Navbar/Navbar";
+import routes from "./router";
 
 function App() {
+  const routeResult = useRoutes(routes);
   return (
     <div>
-      <Home />
+      <Navbar />
+      {routeResult}
     </div>
   );
 }
