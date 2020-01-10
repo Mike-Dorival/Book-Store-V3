@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
+const cors = require("cors");
 const mongoose = require("mongoose");
 // Import Routes
 const authRoute = require("./routes/auth");
@@ -16,6 +17,7 @@ mongoose.connect(
 );
 
 // Middlewares
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

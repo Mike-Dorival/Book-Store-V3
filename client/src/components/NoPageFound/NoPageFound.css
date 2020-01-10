@@ -1,0 +1,16 @@
+.NoPageFound-container {
+  display: flex;
+  justify-content: center;
+  height: 91vh;
+  align-items: center;
+  flex-direction: column;
+}
+
+.NoPageFound-title {
+  margin: 0;
+  font-size: 6rem;
+}
+
+.NoPageFound-message {
+  font-size: 2rem;
+}

@@ -22,11 +22,11 @@ function Login() {
       password
     };
 
-    // if (checkMail.test(mail)) {
-    //   axios
-    //     .post(process.env.REACT_APP_API_URL, obj)
-    //     .then(res => console.log(res));
-    // }
+    if (checkMail.test(email)) {
+      axios
+        .post(process.env.REACT_APP_API_URL, obj)
+        .then(res => console.log(res));
+    }
   };
   return (
     <div className="wrap">

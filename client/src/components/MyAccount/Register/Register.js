@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 function Register() {
   const [formValue, setFormValue] = useState({
@@ -12,13 +13,33 @@ function Register() {
     setFormValue({ ...formValue, [name]: value });
   };
 
+  const handleOnSubmit = event => {
+    event.preventDefault();
+
+    const { username, email, password } = formValue;
+    const checkMail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    const obj = {
+      username,
+      email,
+      password
+    };
+
+    if (checkMail.test(email)) {
+      console.log("dans la condition");
+      axios
+        .post(`${process.env.REACT_APP_API_URL}/register`, obj)
+        .then(res => console.log("response", res));
+    }
+  };
+
   return (
     <div className="wrap">
       <form
         className="login-form"
         action=""
         onChange={handleOnChange}
-        //onSubmit={handleOnSubmit}
+        onSubmit={handleOnSubmit}
       >
         <div className="form-header">
           <h3>Nouveau compte client</h3>
@@ -52,7 +73,11 @@ function Register() {
         </div>
 
         <div className="form-group">
-          <button className="form-button" type="submit">
+          <button
+            className="form-button"
+            type="submit"
+            onSubmit={handleOnSubmit}
+          >
             M'inscrire
           </button>
         </div>

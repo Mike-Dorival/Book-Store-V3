@@ -1,6 +1,7 @@
 import React from "react";
 import { useRoutes } from "hookrouter";
 import Navbar from "./components/Navbar/Navbar";
+import NoPageFound from "./components/NoPageFound/NoPageFound";
 import routes from "./router";
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
   return (
     <div>
       <Navbar />
-      {routeResult}
+      {routeResult || <NoPageFound />}
     </div>
   );
 }

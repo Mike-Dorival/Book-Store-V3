@@ -25,9 +25,11 @@ const registerController = async (req, res) => {
 
   try {
     const savedUser = await user.save();
-    res.status(200).send({ user, message: "Compte crée avec succès" });
+    console.log("dans le try");
+    return res.status(200).send({ user, message: "Compte crée avec succès" });
   } catch (err) {
-    res.status(400).send(err);
+    console.log("erreur", err);
+    return res.status(400).send(err);
   }
 };
 
@@ -40,7 +42,7 @@ const loginController = async (req, res) => {
   const user = await User.findOne({ email: req.body.email });
   if (!user) return res.status(400).send("Email is wrong or not found");
 
-  // check paswword id correct
+  // check paswword is correct
   const validPass = await bcrypt.compare(req.body.password, user.password);
   if (!validPass) return res.status(400).send("Invalid password");
 
