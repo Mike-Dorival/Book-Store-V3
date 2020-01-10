@@ -25,6 +25,7 @@ function Register() {
       password
     };
 
+    // ajouter un catch pour capturer l'erreur
     if (checkMail.test(email)) {
       console.log("dans la condition");
       axios
